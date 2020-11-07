@@ -1,9 +1,11 @@
 console.log ("Loading wallbuildercalculator.js");
 
 var dbug = true;
-var materialCostControls = {"rc":null, "ggComp":null, "drywall12":null, "drywall58":null, "silentFX":null, "drywallCompound":null, "studs":null, "safeNSound":null,"battInsulation":null,"Sonopan":null}
+var materialCostControls = {"rc":{"unit":null,"psf":null}, "ggComp":{"unit":null,"psf":null}, "drywall12":{"unit":null,"psf":null}, "drywall58":{"unit":null,"psf":null}, "silentFX":{"unit":null,"psf":null}, "drywallCompound":{"unit":null,"psf":null}, "studs":{"unit":null,"psf":null}, "safeNSound":{"unit":null,"psf":null},"battInsulation":{"unit":null,"psf":null},"Sonopan":{"unit":null,"psf":null}}
+
 var builderControls = {"size":null};
-var materials = {"rc" : 6.47, "ggComp" : 19.67, "drywall12" : 21.19, "drywall58":21.98, "silentFX": 89.99, "drywallCompound" : 20.20, "studs" : 5.4, "safeNSound" : 57.29, "battInsulation" : 53.5, "Sonopan" : 29.76};
+
+var materials = {"rc" : {"costPerUnit":6.47, "costPerSF":0.54}, "ggComp" : {"costPerUnit":19.67, "costPerSF":0.20}, "drywall12" : {"costPerUnit":21.19, "costPerSF":0.66}, "drywall58":{"costPerUnit":21.98, "costPerSF":0.69}, "silentFX": {"costPerUnit":89.99, "costPerSF":2.81}, "drywallCompound" : {"costPerUnit":20.20, "costPerSF":0.04}, "studs" : {"costPerUnit":6.40, "costPerSF":0.80}, "safeNSound" : {"costPerUnit":57.29, "costPerSF":0.96}, "battInsulation" : {"costPerUnit":53.50, "costPerSF":0.55}, "Sonopan" : {"costPerUnit":29.76, "costPerSF":0.93}};
 const HST = 1.13;
 
 function init () {
@@ -11,9 +13,11 @@ function init () {
 	for (let control in materialCostControls) {
 		let id = control + "Txt";
 		if (dbug) console.log ("Looking for " + id + " to set price as " + materials[control] + ".");
-		materialCostControls[control] = document.getElementById(id);
-		if (dbug) console.log ("Got " + materialCostControls[control]+ ".");
-		materialCostControls[control].setAttribute("value", (materials[control] * HST).toFixed(2));
+		materialCostControls[control]["unit"] = document.getElementById(id);
+		materialCostControls[control]["psf"] = document.getElementById(id + "psf");
+		//if (dbug) console.log ("Got " + materialCostControls[control]["unit"]+ ".");
+		materialCostControls[control]["unit"].setAttribute("value", (materials[control]["costPerUnit"] * HST).toFixed(2));
+		materialCostControls[control]["psf"].setAttribute("value", (materials[control]["costPerSF"] * HST).toFixed(2));
 	}
 	for (let control in builderControls) {
 		let id = control + "Txt";
