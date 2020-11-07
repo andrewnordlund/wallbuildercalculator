@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Wall Builder Calculator</title>
+		<link rel="Stylesheet" href="wallbuildercalculator.css" type="text/css">
+		<script src="wallbuildercalculator.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>Wall Builder Calculator</h1>
+		</header>
+		<main>
+			<section id="costBuilderSection">
+				<h2>Cost Building Section</h2>
+				<div class="form-control">
+					<label for="sizeNum">Enter size of area of wall to sound proof in square feet:</label>
+					<input type="number" id="sizeNum" name="sizeNum" value="32">
+				</div>
+				<fieldset>
+					<legend>Materials</legend>
+					<div class="form-control">
+						<input type="checkbox" id="rcChk" name="rcChk">
+						<label for="rcChk">Resilient Channel</label>
+					</div>
+					<div class="form-control">
+						<input type="checkbox" id="ggCompChk" name="rcChk">
+						<label for="ggCompChk">Green Glue</label>
+					</div>
+					<div class="form-control">
+						<input type="checkbox" id="drywall12Chk" name="drywall12Chk">
+						<label for="drywall12Chk">1/2" Drywall</label>
+					</div>
+					<div class="form-control">
+						<input type="checkbox" id="drywall58Chk" name="drywall58Chk">
+						<label for="drywall58Chk">5/8" Drywall</label>
+					</div>
+					<div class="form-control">
+						<input type="checkbox" id="silentFXChk" name="silentFXChk">
+						<label for="silentFXChk">SilentFX</label>
+					</div>
+					<div class="form-control">
+						<input type="checkbox" id="drywallCompoundChk" name="drywallCompoundChk">
+						<label for="drywallCompoundChk">Drywall Compound</label>
+					</div>
+					<div class="form-control">
+						<input type="checkbox" id="studsChk" name="studsChk">
+						<label for="studsChk">2x4 Studs</label>
+					</div>
+					<div class="form-control">
+						<input type="checkbox" id="safeNSoundChk" name="safeNSoundChk">
+						<label for="safeNSoundChk">Safe'n'sound</label>
+					</div>
+					<div class="form-control">
+						<input type="checkbox" id="battInsulationChk" name="battInsulationChk">
+						<label for="battInsulationChk">R16 Fibreglass Insulation</label>
+					</div>
+					<div class="form-control">
+						<input type="checkbox" id="SonopanChk" name="SonopanChk">
+						<label for="SonopanChk">Sonopan</label>
+					</div>
+				</fieldset>
+			</section>
+			<section id="resultsSection">
+				<h2 id="resultsH2">Results</h2>
+				<p><span class="totalCostSpan">Total cost of this wall: $ <span id="results" aria-labelledby="totalCostSpan"></span>
+			</section>
+			<section id="materialsSection">
+				<h2>Materials</h2>
+				<p>All materials are in dollars</p>
+				<div>
+					<fieldset>
+						<legend>Resilient Channel</legend>
+						<div class="form-control">
+							<label for="rcTxt">Per Unit</label>
+							<input type="text" id="rcTxt" name="rcTxt">
+						</div>
+						<div class="form-control">
+							<label for="rcTxtpsf">Per Square Foot</label>
+							<input type="text" id="rcTxtpsf" name="rcTxtpsf">
+						</div>
+					</fieldset>
+			
+					<fieldset>
+						<legend>Green Glue</legend>
+						<div class="form-control">
+							<label for="ggCompTxt">Per Unit</label>
+							<input type="text" id="ggCompTxt" name="ggCompTxt">
+						</div>
+						<div class="form-control">
+							<label for="ggCompTxtpsf">Per Square Foot</label>
+							<input type="text" id="ggCompTxtpsf" name="ggCompTxtpsf">
+						</div>
+					</fieldset>
+			
+				 	<fieldset>
+						<legend>1/2" Drywall</legend>
+						<div class="form-control">
+							<label for="drywall12Txt">Per Unit</label>
+							<input type="text" id="drywall12Txt" name="drywall12Txt">
+						</div>
+						<div class="form-control">
+							<label for="drywall12Txtpsf">Per Square Foot</label>
+							<input type="text" id="drywall12Txtpsf" name="drywall12Txtpsf">
+						</div>
+					</fieldset>
+			
+			 		<fieldset>
+						<legend>5/8" Drywall</legend>
+						<div class="form-control">
+							<label for="drywall58Txt">Per Unit</label>
+							<input type="text" id="drywall58Txt" name="drywall58Txt">
+						</div>
+						<div class="form-control">
+							<label for="drywall58Txtpsf">Per Square Foot</label>
+							<input type="text" id="drywall58Txtpsf" name="drywall58Txtpsf">
+						</div>
+					</fieldset>
+			
+				 	<fieldset>
+						<legend>SilentFX Drywall</legend>
+						<div class="form-control">
+							<label for="silentFXTxt">Per Unit</label>
+							<input type="text" id="silentFXTxt" name="silentFXTxt">
+						</div>
+						<div class="form-control">
+							<label for="silentFXTxtpsf">Per Square Foot</label>
+							<input type="text" id="silentFXTxtpsf" name="silentFXTxtpsf">
+						</div>
+					</fieldset>
+			
+				 	<fieldset>
+						<legend>Drywall Compound</legend>
+						<div class="form-control">
+							<label for="drywallCompoundTxt">Per Unit</label>
+							<input type="text" id="drywallCompoundTxt" name="drywallCompoundTxt">
+						</div>
+						<div class="form-control">
+							<label for="drywallCompoundTxtpsf">Per Square Foot</label>
+							<input type="text" id="drywallCompoundTxtpsf" name="drywallCompoundTxtpsf">
+						</div>
+					</fieldset>
+			
+				 	<fieldset>
+						<legend>Studs</legend>
+						<div class="form-control">
+							<label for="studsTxt">Per Unit</label>
+							<input type="text" id="studsTxt" name="studsTxt">
+						</div>
+						<div class="form-control">
+							<label for="studsTxtpsf">Per Square Foot</label>
+							<input type="text" id="studsTxtpsf" name="studsTxtpsf">
+						</div>
+					</fieldset>
+			
+			 		<fieldset>
+						<legend>Safe'n'Sound Insulation</legend>
+						<div class="form-control">
+							<label for="safeNSoundTxt">Per Unit</label>
+							<input type="text" id="safeNSoundTxt" name="safeNSoundTxt">
+						</div>
+						<div class="form-control">
+							<label for="safeNSoundTxtpsf">Per Square Foot</label>
+							<input type="text" id="safeNSoundTxtpsf" name="safeNSoundTxtpsf">
+						</div>
+					</fieldset>
+			
+					<fieldset>
+						<legend>Fibreglass Insulation</legend>
+						<div class="form-control">
+							<label for="battInsulationTxt">Per Unit</label>
+							<input type="text" id="battInsulationTxt" name="battInsulationTxt">
+						</div>
+						<div class="form-control">
+							<label for="battInsulationTxtpsf">Per Square Foot</label>
+							<input type="text" id="battInsulationTxtpsf" name="battInsulationTxtpsf">
+						</div>
+					</fieldset>
+			
+					<fieldset>
+						<legend>Sonopan</legend>
+						<div class="form-control">
+							<label for="SonopanTxt">Per Unit</label>
+							<input type="text" id="SonopanTxt" name="SonopanTxt">
+						</div>
+						<div class="form-control">
+							<label for="SonopanTxtpsf">Per Square Foot</label>
+							<input type="text" id="SonopanTxtpsf" name="SonopanTxtpsf">
+						</div>
+					</fieldset>
+			
+				</div>
+			</section>
+		</main>
+		<footer>
+		</footer>
+</html>
