@@ -16,7 +16,7 @@
 				<h2>Cost Building Section</h2>
 				<div class="form-control">
 					<label for="sizeNum">Enter size of area of wall to sound proof in square feet:</label>
-					<input type="number" id="sizeNum" name="sizeNum">
+					<input type="number" id="sizeNum" name="sizeNum" value="32">
 				</div>
 				<fieldset>
 					<legend>Materials</legend>
@@ -25,8 +25,8 @@
 						<label for="rcChk">Resilient Channel</label>
 					</div>
 					<div class="form-control">
-						<input type="checkbox" id="ggChk" name="rcChk">
-						<label for="ggChk">Green Glue</label>
+						<input type="checkbox" id="ggCompChk" name="rcChk">
+						<label for="ggCompChk">Green Glue</label>
 					</div>
 					<div class="form-control">
 						<input type="checkbox" id="drywall12Chk" name="drywall12Chk">
@@ -37,31 +37,34 @@
 						<label for="drywall58Chk">5/8" Drywall</label>
 					</div>
 					<div class="form-control">
-						<input type="checkbox" id="silentFX" name="silentFX">
-						<label for="silentFX">SilentFX</label>
+						<input type="checkbox" id="silentFXChk" name="silentFXChk">
+						<label for="silentFXChk">SilentFX</label>
 					</div>
 					<div class="form-control">
-						<input type="checkbox" id="drywallCmp" name="drywallCmp">
-						<label for="drywallCmp">Drywall Compound</label>
+						<input type="checkbox" id="drywallCompoundChk" name="drywallCompoundChk">
+						<label for="drywallCompoundChk">Drywall Compound</label>
 					</div>
 					<div class="form-control">
-						<input type="checkbox" id="studsCmp" name="studsCmp">
-						<label for="studsCmp">2x4 Studs</label>
+						<input type="checkbox" id="studsChk" name="studsChk">
+						<label for="studsChk">2x4 Studs</label>
 					</div>
 					<div class="form-control">
-						<input type="checkbox" id="safeNSound" name="safeNSound">
-						<label for="safeNSound">Safe'n'sound</label>
+						<input type="checkbox" id="safeNSoundChk" name="safeNSoundChk">
+						<label for="safeNSoundChk">Safe'n'sound</label>
 					</div>
 					<div class="form-control">
-						<input type="checkbox" id="battInsulation" name="battInsulation">
-						<label for="battInsulation">Resilient Channel</label>
+						<input type="checkbox" id="battInsulationChk" name="battInsulationChk">
+						<label for="battInsulationChk">R16 Fibreglass Insulation</label>
 					</div>
 					<div class="form-control">
-						<input type="checkbox" id="Sonopan" name="Sonopan">
-						<label for="Sonopan">Sonopan</label>
+						<input type="checkbox" id="SonopanChk" name="SonopanChk">
+						<label for="SonopanChk">Sonopan</label>
 					</div>
 				</fieldset>
-				<p id="results"></p>
+			</section>
+			<section id="resultsSection">
+				<h2 id="resultsH2">Results</h2>
+				<p><span class="totalCostSpan">Total cost of this wall: $ <span id="results" aria-labelledby="totalCostSpan"></span>
 			</section>
 			<section id="materialsSection">
 				<h2>Materials</h2>

@@ -1,7 +1,7 @@
-console.log ("Loading wallbuildercalculator.js");
+var dbug = false;
+if (dbug) console.log ("Loading wallbuildercalculator.js");
 
-var dbug = true;
-var materialCostControls = {"rc":{"unit":null,"psf":null}, "ggComp":{"unit":null,"psf":null}, "drywall12":{"unit":null,"psf":null}, "drywall58":{"unit":null,"psf":null}, "silentFX":{"unit":null,"psf":null}, "drywallCompound":{"unit":null,"psf":null}, "studs":{"unit":null,"psf":null}, "safeNSound":{"unit":null,"psf":null},"battInsulation":{"unit":null,"psf":null},"Sonopan":{"unit":null,"psf":null}}
+var materialCostControls = {"rc":{"unit":null,"psf":null, "Chk":null}, "ggComp":{"unit":null,"psf":null, "Chk":null}, "drywall12":{"unit":null,"psf":null, "Chk":null}, "drywall58":{"unit":null,"psf":null, "Chk":null}, "silentFX":{"unit":null,"psf":null, "Chk":null}, "drywallCompound":{"unit":null,"psf":null, "Chk":null}, "studs":{"unit":null,"psf":null, "Chk":null}, "safeNSound":{"unit":null,"psf":null, "Chk":null},"battInsulation":{"unit":null,"psf":null, "Chk":null},"Sonopan":{"unit":null,"psf":null, "Chk":null}}
 
 var builderControls = {"sizeNum":null, "rcChk":null, "ggChk":null,"results":null};
 
@@ -9,25 +9,40 @@ var materials = {"rc" : {"costPerUnit":6.47, "costPerSF":0.54}, "ggComp" : {"cos
 const HST = 1.13;
 
 function init () {
-	console.log ("Initting");
+	if (dbug) console.log ("Initting");
 	for (let control in materialCostControls) {
 		let id = control + "Txt";
 		if (dbug) console.log ("Looking for " + id + " to set price as " + materials[control] + ".");
 		materialCostControls[control]["unit"] = document.getElementById(id);
 		materialCostControls[control]["psf"] = document.getElementById(id + "psf");
+		materialCostControls[control]["Chk"] = document.getElementById(control + "Chk");
 		//if (dbug) console.log ("Got " + materialCostControls[control]["unit"]+ ".");
 		materialCostControls[control]["unit"].setAttribute("value", (materials[control]["costPerUnit"] * HST).toFixed(2));
 		materialCostControls[control]["psf"].setAttribute("value", (materials[control]["costPerSF"] * HST).toFixed(2));
 
-		materrialCostcontrols[control]["unit"].addEventListener("change", calculate, false);
-		materrialCostcontrols[control]["psf"].addEventListener("change", calculate, false);
+		materialCostControls[control]["unit"].addEventListener("change", calculate, false);
+		materialCostControls[control]["psf"].addEventListener("change", calculate, false);
+		materialCostControls[control]["Chk"].addEventListener("click", calculate, false);
 	}
 	for (let control in builderControls) {
 		let id = control;
 		builderControls[control] = document.getElementById(id);
 	}
+	builderControls["sizeNum"].addEventListener("change", calculate, false);
+	calculate();
 
-}
+} // End of init
+
+function calculate (e) {
+	if (dbug) console.log ("Calculating");
+	let total = 0;
+	for (let control in materialCostControls) {
+		if (dbug) console.log ("Checking for value of control: " + control + ".");
+		if (materialCostControls[control]["Chk"].checked) total = total + materialCostControls[control]["psf"].value * builderControls["sizeNum"].value;
+		if (dbug) console.log ("Total " + total + ".");
+	}
+	builderControls["results"].innerHTML = total.toFixed(2);
+} // End of calculate
 
 document.addEventListener("DOMContentLoaded", init, false);
-console.log ("Loaded wallbuildercalculator.js");
+if (dbug) console.log ("Loaded wallbuildercalculator.js");
