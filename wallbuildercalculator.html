@@ -63,8 +63,24 @@
 						<label for="ggCompChk">Green Glue</label>
 					</div>
 					<div class="form-control">
+						<input type="checkbox" id="ggSealantChk" name="rcChk">
+						<label for="ggSealantChk">Green Glue</label>
+					</div>
+					<div class="form-control">
+						<input type="checkbox" id="drywallScrewsChk" name="drywallScrewsChk">
+						<label for="drywallScrewsChk">Drywall Screws</label>
+					</div>
+					<div class="form-control">
 						<input type="checkbox" id="drywallCompoundChk" name="drywallCompoundChk">
 						<label for="drywallCompoundChk">Drywall Compound</label>
+					</div>
+					<div class="form-control">
+						<input type="checkbox" id="drywallTapeChk" name="drywallTapeChk">
+						<label for="drywallTapeChk">Drywall Tape</label>
+					</div>
+					<div class="form-control">
+						<input type="checkbox" id="paintChk" name="paintChk">
+						<label for="paintChk">Paint</label>
 					</div>
 				</fieldset>
 			</section>
@@ -76,7 +92,7 @@
 				<h2>Materials</h2>
 				<p>All materials are in dollars</p>
 				<div>
-				 	<fieldset>
+				 	<fieldset id="studsFS">
 						<legend>Studs</legend>
 						<div class="form-control">
 							<label for="studsTxt">Per Unit</label>
@@ -92,7 +108,7 @@
 						</div>
 					</fieldset>
 			
-			 		<fieldset>
+			 		<fieldset id="safeNSoundFS">
 						<legend>Safe'n'Sound Insulation</legend>
 						<div class="form-control">
 							<label for="safeNSoundTxt">Per Unit</label>
@@ -108,7 +124,7 @@
 						</div>
 					</fieldset>
 						
-					<fieldset>
+					<fieldset id="battInsulationFS">
 						<legend>Fibreglass Insulation</legend>
 						<div class="form-control">
 							<label for="battInsulationTxt">Per Unit</label>
@@ -124,7 +140,7 @@
 						</div>
 					</fieldset>
 
-					<fieldset>
+					<fieldset id="rcFS">
 						<legend>Resilient Channel</legend>
 						<div class="form-control">
 							<label for="rcTxt">Per Unit</label>
@@ -140,7 +156,7 @@
 						</div>
 					</fieldset>
 			
-					<fieldset>
+					<fieldset id="SonopanFS">
 						<legend>Sonopan</legend>
 						<div class="form-control">
 							<label for="SonopanTxt">Per Unit</label>
@@ -156,7 +172,7 @@
 						</div>
 					</fieldset>
 
-				 	<fieldset>
+				 	<fieldset id="drywall12FS">
 						<legend>1/2" Drywall</legend>
 						<div class="form-control">
 							<label for="drywall12Txt">Per Unit</label>
@@ -172,7 +188,7 @@
 						</div>
 					</fieldset>
 			
-			 		<fieldset>
+			 		<fieldset id="drywall58FS">
 						<legend>5/8" Drywall</legend>
 						<div class="form-control">
 							<label for="drywall58Txt">Per Unit</label>
@@ -188,7 +204,7 @@
 						</div>
 					</fieldset>
 			
-				 	<fieldset>
+				 	<fieldset id="silentFXFS">
 						<legend>SilentFX Drywall</legend>
 						<div class="form-control">
 							<label for="silentFXTxt">Per Unit</label>
@@ -203,9 +219,9 @@
 							<input type="text" id="silentFXTxtpsf" name="silentFXTxtpsf">
 						</div>
 					</fieldset>
-
-					<fieldset>
-						<legend>Green Glue</legend>
+					
+					<fieldset id="ggCompFS">
+						<legend>Green Glue Compund</legend>
 						<div class="form-control">
 							<label for="ggCompTxt">Per Unit</label>
 							<input type="text" id="ggCompTxt" name="ggCompTxt">
@@ -220,8 +236,40 @@
 						</div>
 					</fieldset>
 			
-					
-					<fieldset>
+					<fieldset id="ggSealantFS">
+						<legend>Green Glue Sealant</legend>
+						<div class="form-control">
+							<label for="ggSealantTxt">Per Unit</label>
+							<input type="text" id="ggSealantTxt" name="ggSealantTxt">
+						</div>
+						<div class="form-control">
+							<label for="ggSealantTxtpsd">Per Sheet of Drywall</label>
+							<input type="text" name="ggSealantTxtpsd" id="ggSealantTxtpsd">
+						</div>
+						<div class="form-control">
+							<label for="ggSealantTxtpsf">Per Square Foot</label>
+							<input type="text" id="ggSealantTxtpsf" name="ggSealantTxtpsf">
+						</div>
+					</fieldset>
+			
+					<fieldset id="drywallScrewsFS">
+						<legend>Drywall Screws</legend>
+						<div class="form-control">
+							<label for="drywallScrewsTxt">Per Unit</label>
+							<input type="text" id="drywallScrewsTxt" name="drywallScrewsTxt">
+						</div>
+						<div class="form-control">
+							<label for="drywallScrewsTxtpsd">Per Sheet of Drywall</label>
+							<input type="text" name="drywallScrewsTxtpsd" id="drywallScrewsTxtpsd">
+						</div>
+						<div class="form-control">
+							<label for="drywallScrewsTxtpsf">Per Square Foot</label>
+							<input type="text" id="drywallScrewsTxtpsf" name="drywallScrewsTxtpsf">
+						</div>
+					</fieldset>
+
+
+					<fieldset id="drywallCompoundFS">
 						<legend>Drywall Compound</legend>
 						<div class="form-control">
 							<label for="drywallCompoundTxt">Per Unit</label>
@@ -236,6 +284,40 @@
 							<input type="text" id="drywallCompoundTxtpsf" name="drywallCompoundTxtpsf">
 						</div>
 					</fieldset>
+
+					<fieldset id="drywallTapeFS">
+						<legend>Drywall Tape</legend>
+						<div class="form-control">
+							<label for="drywallTapeTxt">Per Unit</label>
+							<input type="text" id="drywallTapeTxt" name="drywallTapeTxt">
+						</div>
+						<div class="form-control">
+							<label for="drywallTapeTxtpsd">Per Sheet of Drywall</label>
+							<input type="text" name="drywallTapeTxtpsd" id="drywallTapeTxtpsd">
+						</div>
+						<div class="form-control">
+							<label for="drywallTapeTxtpsf">Per Square Foot</label>
+							<input type="text" id="drywallTapeTxtpsf" name="drywallTapeTxtpsf">
+						</div>
+					</fieldset>
+
+					<fieldset id="paintFS">
+						<legend>Paint</legend>
+						<div class="form-control">
+							<label for="paintTxt">Per Unit</label>
+							<input type="text" id="paintTxt" name="paintTxt">
+						</div>
+						<div class="form-control">
+							<label for="paintTxtpsd">Per Sheet of Drywall</label>
+							<input type="text" name="paintTxtpsd" id="paintTxtpsd">
+						</div>
+						<div class="form-control">
+							<label for="paintTxtpsf">Per Square Foot</label>
+							<input type="text" id="paintTxtpsf" name="paintTxtpsf">
+						</div>
+					</fieldset>
+
+
 
 			
 				</div>
