@@ -2,20 +2,20 @@ var dbug = false;
 if (dbug) console.log ("Loading wallbuildercalculator.js");
 
 var materialCostControls = {
-	"studs":{"unit":null,"psd":null, "psf":null, "Chk":null},
-	"safeNSound":{"unit":null,"psd":null, "psf":null, "Chk":null},
-	"battInsulation":{"unit":null,"psd":null, "psf":null, "Chk":null},
-	"rc":{"unit":null,"psd":null, "psf":null, "Chk":null},
-	"Sonopan":{"unit":null,"psd":null, "psf":null, "Chk":null},
-	"drywall12":{"unit":null,"psd":null, "psf":null, "Chk":null},
-	"drywall58":{"unit":null,"psd":null, "psf":null, "Chk":null},
-	"silentFX":{"unit":null,"psd":null, "psf":null, "Chk":null},
-	"ggComp":{"unit":null,"psd":null, "psf":null, "Chk":null},
-	"ggSealant":{"unit":null,"psd":null, "psf":null, "Chk":null},
-	"drywallScrews":{"unit":null,"psd":null, "psf":null, "Chk":null},
-	"drywallCompound":{"unit":null,"psd":null, "psf":null, "Chk":null},
-	"drywallTape":{"unit":null,"psd":null, "psf":null, "Chk":null},
-	"paint":{"unit":null,"psd":null, "psf":null, "Chk":null},
+	"studs":{"FS":null, "unit":null,"psd":null, "psf":null, "Chk":null},
+	"safeNSound":{"FS":null, "unit":null,"psd":null, "psf":null, "Chk":null},
+	"battInsulation":{"FS":null, "unit":null,"psd":null, "psf":null, "Chk":null},
+	"rc":{"FS":null, "unit":null,"psd":null, "psf":null, "Chk":null},
+	"Sonopan":{"FS":null, "unit":null,"psd":null, "psf":null, "Chk":null},
+	"drywall12":{"FS":null, "unit":null,"psd":null, "psf":null, "Chk":null},
+	"drywall58":{"FS":null, "unit":null,"psd":null, "psf":null, "Chk":null},
+	"silentFX":{"FS":null, "unit":null,"psd":null, "psf":null, "Chk":null},
+	"ggComp":{"FS":null, "unit":null,"psd":null, "psf":null, "Chk":null},
+	"ggSealant":{"FS":null, "unit":null,"psd":null, "psf":null, "Chk":null},
+	"drywallScrews":{"FS":null, "unit":null,"psd":null, "psf":null, "Chk":null},
+	"drywallCompound":{"FS":null, "unit":null,"psd":null, "psf":null, "Chk":null},
+	"drywallTape":{"FS":null, "unit":null,"psd":null, "psf":null, "Chk":null},
+	"paint":{"FS":null, "unit":null,"psd":null, "psf":null, "Chk":null},
 }
 
 var builderControls = {"sizeNum":null, "rcChk":null, "ggChk":null,"results":null};
@@ -47,6 +47,7 @@ function init () {
 		materialCostControls[control]["psd"] = document.getElementById(id + "psd");
 		materialCostControls[control]["psf"] = document.getElementById(id + "psf");
 		materialCostControls[control]["Chk"] = document.getElementById(control + "Chk");
+		materialCostControls[control]["FS"] = document.getElementById(control + "FS");
 		//if (dbug) console.log ("Got " + materialCostControls[control]["unit"]+ ".");
 		materialCostControls[control]["unit"].setAttribute("value", (materials[control]["costPerUnit"] * HST).toFixed(2));
 		materialCostControls[control]["psd"].setAttribute("value", (materials[control]["costPerUnit"]*materials[control]["costPerDrywall"]*HST).toFixed(2));
@@ -55,6 +56,29 @@ function init () {
 		materialCostControls[control]["unit"].addEventListener("change", calculate, false);
 		materialCostControls[control]["psf"].addEventListener("change", calculate, false);
 		materialCostControls[control]["Chk"].addEventListener("click", calculate, false);
+
+		if (materials[control]["link"].length > 1) {
+			var linkList = document.createHTMLElement("ul");
+			for (let i = 0; i < materials[control]["link"].length; i++) {
+				var li = document.createElement("li");
+				var a = document.createElement("a");
+				a.setAttribute("href", materials[control]["link"]["url"]);
+				a.setAttribute("target", "_blank");
+				a.setAttribute("class", "newwindow");
+				a.appendChild(document.createTextNode(materials[control]["link"]["text"]));
+				li.appendChild(a);
+				linkList.appendChild(li);
+			}
+			materialCostControls[control]["FS"].appendChild(linkList);
+		} else {
+			var a = document.createElement("a");
+			a.setAttribute("target", "_blank");
+			a.setAttribute("class", "newwindow");
+			a.setAttribute("href", materials[control]["link"][0]["url"]);
+			a.appendChild(document.createTextNode(materials[control]["link"][0]["text"]));
+			
+			materialCostControls[control]["FS"].appendChild(a);
+		}
 	}
 	for (let control in builderControls) {
 		let id = control;
